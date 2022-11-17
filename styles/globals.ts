@@ -1,5 +1,5 @@
-html,
-body {
+export const globalStyle: string = `
+html,body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -20,7 +20,8 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+      /* background-color: white; */
   }
 }
+}`;
