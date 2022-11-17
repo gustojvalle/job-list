@@ -12,11 +12,23 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "algolia": "^0.0.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-instantsearch-dom": "^6.38.1",
+    "react-instantsearch-hooks-web": "^6.38.1",
+    "search": "^1.0.0",
+    "styled-components": "^5.3.6",
     "typescript": "4.9.3"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "devDependencies": {
+    "@types/react-instantsearch-dom": "^6.12.3",
+    "@types/styled-components": "^5.1.26"
   }
 }
