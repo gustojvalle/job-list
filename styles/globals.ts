@@ -15,13 +15,9 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: black;
-      /* background-color: white; */
-  }
+button {
+  background-color: none; 
+  border:none; 
+
 }
 }`;

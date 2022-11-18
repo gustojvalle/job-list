@@ -3,32 +3,35 @@ import React, { ReactNode } from "react";
 import styled, { CSSObject } from "styled-components";
 import favicon from "../public/favicon.png";
 
-type Props = { children: ReactNode; title: string };
+type Props = { children: ReactNode; title: string; bgColour?: string };
 
-const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 10rem 0 10rem;
-  min-height: 100vh;
-`;
+const mainStyle: CSSObject = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  padding: "10rem 2rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  minHeight: "100vh",
+  minWidth: "100vw",
+};
 
-const mainStyle: CSSObject = {};
-
-const Main = styled.div`
+const Main = styled.div.attrs(({ bgColour }: { bgColour: string }) => ({
+  bgColour,
+}))`
   ${mainStyle}
+  background:${({ bgColour }: { bgColour: string }) => bgColour}
 `;
 
-export default function PageWrapper({ children, title }: Props) {
+export default function PageWrapper({ children, title, bgColour }: Props) {
   return (
     <>
       <Head>
         <title>{title}</title>
         <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
       </Head>
-      <Main>
-        <Root>{children}</Root>
-      </Main>
+      <Main bgColour={!bgColour ? "white" : bgColour}>{children}</Main>
     </>
   );
 }

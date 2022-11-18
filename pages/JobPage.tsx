@@ -5,11 +5,10 @@ import {
   HitsPerPage,
   useInfiniteHits,
 } from "react-instantsearch-hooks-web";
-import styled from "styled-components";
+import styled, { CSSObject, useTheme } from "styled-components";
 import PageWrapper from "../components/PageWrapper";
 import algoliasearch from "algoliasearch/lite";
 import SearchResults from "../components/SearchResults";
-import { useSearch } from "../customHooks/useSearch";
 import StateIndicator from "../components/StateIndicator";
 const H1 = styled.h1``;
 
@@ -18,18 +17,34 @@ const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_KEY || " "
 );
 
+const styleHPPage: CSSObject = {
+  "& > select": {
+    outline: "none",
+    border: "none",
+    borderRadius: "2px",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+};
+const StyledHPPage = styled(HitsPerPage)`
+  ${styleHPPage}
+`;
+
 function JobPageComponent(props: any) {
   const { hits, isLastPage, showMore } = useInfiniteHits<any>();
+  const theme = useTheme();
+
   return (
-    <PageWrapper title="job-page">
+    <PageWrapper bgColour={theme.colors.quinternary} title="job-page">
       <H1>Job Openings</H1>
       <p>
-        Just say anything, George, say what ever's natural, the first thing that
+        Just say anything, George, say what evers natural, the first thing that
         comes to your mind. Take that you mutated son-of-a-bitch. My pine, why
         you.
       </p>
-
-      <HitsPerPage
+      <label>Results per page</label>
+      <StyledHPPage
         items={[
           { label: "10", value: 10, default: true },
           { label: "15", value: 15 },

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { SearchBox, useInstantSearch } from "react-instantsearch-hooks-web";
 import { useSearch } from "../customHooks/useSearch";
@@ -7,6 +7,7 @@ import SearchResultCard from "./SearchResultCard";
 const Ul = styled.ul`
   list-style-type: none;
   width: 100%;
+  padding: 0;
 `;
 
 type Props = { showMore: any; hits: any; isLastPage: any };
@@ -17,11 +18,11 @@ export default function SearchResults({ showMore, isLastPage, hits }: Props) {
 
   const { uiState, setUiState } = useInstantSearch();
   const { searchState, setSearchState } = useSearch();
+  const [detailsOpen, setDetailsOpen] = useState({});
 
   useEffect(() => {
-    console.log(uiState[process.env.NEXT_PUBLIC_INDEX_NAME || ""]);
-  }, [uiState]);
-
+    console.log(hits);
+  }, [hits]);
   useEffect(() => {
     setUiState({
       [process.env.NEXT_PUBLIC_INDEX_NAME || ""]: {
@@ -51,7 +52,12 @@ export default function SearchResults({ showMore, isLastPage, hits }: Props) {
     <Ul>
       <SearchBox hidden={true} />
       {hits.map((hit: any) => (
-        <SearchResultCard key={hit.id} hit={hit} />
+        <SearchResultCard
+          key={hit.id}
+          hit={hit}
+          detailsOpen={detailsOpen}
+          setDetailsOpen={setDetailsOpen}
+        />
       ))}
       <li ref={lastPos} aria-hidden={true}></li>
     </Ul>
