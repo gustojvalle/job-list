@@ -16,8 +16,12 @@ a {
 }
 
 button {
-  background-color: none; 
+  background: none; 
   border:none; 
+  
 
+}
+button:hover{
+  cursor:pointer
 }
 }`;

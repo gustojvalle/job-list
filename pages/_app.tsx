@@ -40,7 +40,7 @@ const Header = styled.header`
 
 const GlobalStyleSetup = createGlobalStyle`${globalStyle}`;
 
-const Theme = {
+const Theme: CSSObject = {
   colors: {
     black: "#000000",
     white: "#FFFFFF",
@@ -49,6 +49,7 @@ const Theme = {
     tertiary: "#D7F2BA",
     quarternary: "#9FA4C4",
     quinternary: "#cfe7bb",
+    gray50: "rgba(224,224,224)",
   },
 };
 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Hit } from "react-instantsearch-core";
-import styled, { CSSObject } from "styled-components";
+import styled, { CSSObject, ThemeProps } from "styled-components";
+import marker from "../public/marker.png";
+import Image from "next/image";
+import ApplyNowButton from "./ApplyNowButton";
 
 type Props = { hit: Hit; detailsOpen: any; setDetailsOpen: any };
 
@@ -15,7 +18,6 @@ const closeButtonStyle: CSSObject = {
   alignContent: "center",
   justifyContent: "center",
   color: "black",
-  backgroundColor: "rgba(0,0,0,0)",
   "&:hover": {
     cursor: "pointer",
   },
@@ -27,7 +29,7 @@ const Button = styled.button`
 
 const detailsStyles: CSSObject = {
   position: "relative",
-  backgroundColor: "yellow",
+  backgroundColor: "white",
   borderRadius: "6px",
   width: "100%",
   alignItems: "center",
@@ -37,13 +39,16 @@ const detailsStyles: CSSObject = {
     transformOrigin: "center",
     transition: ".25s transform ease",
   },
-  "&[open] > summary ": {
-    borderBottom: "2px solid black",
-  },
 };
 
 const Details = styled.details`
-  ${detailsStyles}
+  ${detailsStyles};
+  &[open] > summary {
+    border-bottom: ${(props: any) => {
+      console.log(props.theme.colors.gray50);
+      return `2px solid ${props.theme.colors.quinternary}`;
+    }}
+  },
 `;
 
 const summaryStyle: CSSObject = {
@@ -71,10 +76,29 @@ const JobInfoContainer = styled.div`
 const bottomInfoStyles: CSSObject = {
   display: "flex",
   justifyContent: "space-between",
+  marginTop: "1.5rem",
 };
 const BottomInfo = styled.div`
   ${bottomInfoStyles}
 `;
+
+const locationStyle: CSSObject = {
+  display: "flex",
+  alignItems: "center",
+  color: "rgba(0,0,0,0.4)",
+};
+const LocationInfo = styled.p`
+  ${locationStyle}
+`;
+
+const locationMarkerStyle: CSSObject = {
+  height: "1.6rem",
+  opacity: 0.5,
+};
+const LocationMarker = styled.img`
+  ${locationMarkerStyle}
+`;
+
 export default function SearchResultCard({
   hit,
   detailsOpen,
@@ -107,8 +131,13 @@ export default function SearchResultCard({
           key={hit.id}
         ></div>
         <BottomInfo>
-          <p>{hit.city}</p>
-          <button>Apply now</button>
+          <LocationInfo>
+            <span>
+              <LocationMarker alt="location marker icon" src={marker.src} />
+            </span>
+            {hit.city}
+          </LocationInfo>
+          <ApplyNowButton />
         </BottomInfo>
       </JobInfoContainer>
     </Details>

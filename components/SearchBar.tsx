@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import styled, { CSSObject } from "styled-components";
 import { useSearch } from "../customHooks/useSearch";
+import magnifierIcon from "../public/magnifier.png";
 
 const formStyle: CSSObject = {
   width: "100%",
@@ -22,6 +23,16 @@ const inpuStyle: CSSObject = {
 };
 const Input = styled.input`
   ${inpuStyle}
+`;
+
+const searchIconStyles: CSSObject = {
+  display: "flex",
+  padding: "0.2rem",
+  opacity: 0.5,
+  height: "1.5rem",
+};
+const SearchIcon = styled.img`
+  ${searchIconStyles}
 `;
 
 export default function SearchBar() {
@@ -47,7 +58,9 @@ export default function SearchBar() {
         name="query"
         id="query"
       />
-      <button type="submit">Go</button>
+      <button type="submit">
+        <SearchIcon src={magnifierIcon.src} />
+      </button>
     </Form>
   );
 }
