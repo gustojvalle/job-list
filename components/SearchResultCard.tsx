@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Hit } from "react-instantsearch-core";
 import styled, { CSSObject, ThemeProps } from "styled-components";
 import marker from "../public/marker.png";
-import Image from "next/image";
 import ApplyNowButton from "./ApplyNowButton";
+import { cardShadow } from "../styles/sharedStyles";
 
 type Props = { hit: Hit; detailsOpen: any; setDetailsOpen: any };
 
@@ -34,6 +34,7 @@ const detailsStyles: CSSObject = {
   width: "100%",
   alignItems: "center",
   marginBottom: "1rem",
+  ...cardShadow,
   "&[open] > summary > button": {
     transform: "rotate(0)",
     transformOrigin: "center",

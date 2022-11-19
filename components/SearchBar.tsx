@@ -3,6 +3,7 @@ import React from "react";
 import styled, { CSSObject } from "styled-components";
 import { useSearch } from "../customHooks/useSearch";
 import magnifierIcon from "../public/magnifier.png";
+import { cardShadow } from "../styles/sharedStyles";
 
 const formStyle: CSSObject = {
   width: "100%",
@@ -10,6 +11,8 @@ const formStyle: CSSObject = {
   backgroundColor: "white",
   borderRadius: "6px",
   overflow: "hidden",
+  padding: "1rem",
+  ...cardShadow,
 };
 const Form = styled.form`
   ${formStyle}
@@ -17,7 +20,7 @@ const Form = styled.form`
 
 const inpuStyle: CSSObject = {
   width: "100%",
-  padding: "1rem",
+  padding: "none",
   border: "none",
   outline: "none",
 };

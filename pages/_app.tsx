@@ -9,6 +9,7 @@ import styled, {
 import { SearchProvider } from "../customHooks/useSearch";
 import { globalStyle } from "../styles/globals";
 import Image from "next/image";
+import { ThemeType } from "../types/ThemeTypes";
 
 const imageStyle: CSSObject = {
   position: "relative",
@@ -38,7 +39,9 @@ const Header = styled.header`
   ${headerStyle}
 `;
 
-const GlobalStyleSetup = createGlobalStyle`${globalStyle}`;
+const GlobalStyleSetup = createGlobalStyle<{
+  theme: ThemeType;
+}>`${globalStyle}`;
 
 const Theme: CSSObject = {
   colors: {

@@ -5,11 +5,17 @@ import {
   HitsPerPage,
   useInfiniteHits,
 } from "react-instantsearch-hooks-web";
-import styled, { CSSObject, useTheme } from "styled-components";
+import styled, {
+  CSSObject,
+  DefaultTheme,
+  ThemeProviderProps,
+  useTheme,
+} from "styled-components";
 import PageWrapper from "../components/PageWrapper";
 import algoliasearch from "algoliasearch/lite";
 import SearchResults from "../components/SearchResults";
 import StateIndicator from "../components/StateIndicator";
+import { ThemeType } from "../types/ThemeTypes";
 const H1 = styled.h1``;
 
 const searchClient = algoliasearch(
@@ -33,7 +39,7 @@ const StyledHPPage = styled(HitsPerPage)`
 
 function JobPageComponent(props: any) {
   const { hits, isLastPage, showMore } = useInfiniteHits<any>();
-  const theme = useTheme();
+  const theme = useTheme() as ThemeType;
 
   return (
     <PageWrapper bgColour={theme.colors.quinternary} title="job-page">
