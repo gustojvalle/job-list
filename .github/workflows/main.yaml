@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: '16.x'
       - uses: actions/checkout@v1
+      - name: installing dependencies
+        run: yarn install --ignore-engines
       - name: test
         run: yarn run test --no-watch 
 
