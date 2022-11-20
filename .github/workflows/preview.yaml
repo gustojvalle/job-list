@@ -10,6 +10,10 @@ jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
     steps:
+      - name: "deploy preview to vercel"
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18'
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
