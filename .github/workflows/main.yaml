@@ -16,17 +16,10 @@ jobs:
         with:
           node-version: '16.x'
       - uses: actions/checkout@v1
-<<<<<<< HEAD
       - name: installing dependencies
         run: yarn install --ignore-engines
       - name: test
         run: yarn run test --no-watch 
-
-    
-=======
-      - name: test
-        run: yarn run test --no-watch 
->>>>>>> 3a55d152ff7da9459cf4fe4e2c456f9f92fad66c
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
