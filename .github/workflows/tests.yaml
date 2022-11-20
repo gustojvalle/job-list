@@ -11,9 +11,9 @@ jobs:
       - name: Test using Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16.x'
       - run: yarn install --ignore-engines
-      - run: yarn run test
+      - run: yarn run test --no-watch
 
       - name: Tests ✅
         if: ${{ success() }}
