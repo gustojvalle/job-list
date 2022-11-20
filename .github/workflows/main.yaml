@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: '16.x'
       - uses: actions/checkout@v1
-      - name: yarn run test --coverage
-        uses: stefanoeb/jest-action@1.0.3
+      - name: test
+        run: yarn run test --no-watch 
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
