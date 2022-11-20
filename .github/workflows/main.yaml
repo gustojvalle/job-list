@@ -7,6 +7,19 @@ on:
     branches:
       - main
 jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - uses: actions/checkout@v1
+      - name: yarn run test --coverage
+        uses: stefanoeb/jest-action@1.0.3
+
+    
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
