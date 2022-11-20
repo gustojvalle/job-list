@@ -3,6 +3,7 @@ import React from "react";
 import styled, { CSSObject } from "styled-components";
 import { useSearch } from "../customHooks/useSearch";
 import magnifierIcon from "../public/magnifier.png";
+import { device } from "../styles/mediaQueries";
 import { cardShadow } from "../styles/sharedStyles";
 
 const formStyle: CSSObject = {
@@ -16,6 +17,9 @@ const formStyle: CSSObject = {
 };
 const Form = styled.form`
   ${formStyle}
+   @media ${device.laptop} {  
+    max-width: 60vw
+  },
 `;
 
 const inpuStyle: CSSObject = {

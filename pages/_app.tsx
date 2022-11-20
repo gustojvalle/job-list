@@ -7,9 +7,10 @@ import styled, {
   ThemeProvider,
 } from "styled-components";
 import { SearchProvider } from "../customHooks/useSearch";
-import { globalStyle } from "../styles/globals";
+import { globalStyle, Theme } from "../styles/globals";
 import Image from "next/image";
 import { ThemeType } from "../types/ThemeTypes";
+import Link from "next/link";
 
 const imageStyle: CSSObject = {
   position: "relative",
@@ -35,6 +36,7 @@ const headerStyle: CSSObject = {
   display: "flex",
   justifyContent: "space-between",
 };
+
 const Header = styled.header`
   ${headerStyle}
 `;
@@ -43,31 +45,20 @@ const GlobalStyleSetup = createGlobalStyle<{
   theme: ThemeType;
 }>`${globalStyle}`;
 
-const Theme: CSSObject = {
-  colors: {
-    black: "#000000",
-    white: "#FFFFFF",
-    primary: "#40476D",
-    secondary: "#79B4A9",
-    tertiary: "#D7F2BA",
-    quarternary: "#9FA4C4",
-    quinternary: "#cfe7bb",
-    gray50: "rgba(224,224,224)",
-  },
-};
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyleSetup />
       <Root>
         <Header>
-          <ImageStyled
-            src={icon.src}
-            alt="company's logo"
-            width={60}
-            height={60}
-          />
+          <Link href="/">
+            <ImageStyled
+              src={icon.src}
+              alt="company's logo"
+              width={60}
+              height={60}
+            />
+          </Link>
           <button>Login</button>
         </Header>
         <ThemeProvider theme={Theme}>

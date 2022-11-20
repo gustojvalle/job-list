@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -29,6 +30,10 @@
   },
   "devDependencies": {
     "@types/react-instantsearch-dom": "^6.12.3",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "jest-environment-jsdom": "28.1.2",
+    "jest": "28.1.2"
   }
 }
