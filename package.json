@@ -35,5 +35,8 @@
     "@testing-library/react": "^13.4.0",
     "jest-environment-jsdom": "28.1.2",
     "jest": "28.1.2"
+  },
+  "engines": {
+    "node": "^16"
   }
 }
