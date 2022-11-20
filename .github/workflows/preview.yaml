@@ -13,7 +13,7 @@ jobs:
       - name: "deploy preview to vercel"
         uses: actions/setup-node@v1
         with:
-          node-version: '18'
+          node-version: '16.x'
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
