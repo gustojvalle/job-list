@@ -5,6 +5,7 @@ import marker from "../public/marker.png";
 import ApplyNowButton from "./ApplyNowButton";
 import { cardShadow } from "../styles/sharedStyles";
 import { device } from "../styles/mediaQueries";
+import { ThemeType } from "../types/ThemeTypes";
 
 type Props = { hit: Hit; detailsOpen: any; setDetailsOpen: any };
 
@@ -49,8 +50,8 @@ const Details = styled.details`
     max-width: 60vw
   },
   &[open] > summary {
-    border-bottom: ${(props: any) =>
-      `2px solid ${props.theme.colors.quinternary}`},
+    border-bottom: ${({ theme }: { theme: ThemeType }) =>
+      `2px solid ${theme.colors.quinternary}`},
 `;
 
 const summaryStyle: CSSObject = {

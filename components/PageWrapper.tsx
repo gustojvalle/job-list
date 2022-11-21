@@ -3,7 +3,12 @@ import React, { ReactNode } from "react";
 import styled, { CSSObject } from "styled-components";
 import favicon from "../public/favicon.png";
 
-type Props = { children: ReactNode; title: string; bgColour?: string };
+type Props = {
+  children: ReactNode;
+  title: string;
+  bgColour?: string;
+  extraStyle?: CSSObject;
+};
 
 const mainStyle: CSSObject = {
   position: "absolute",
@@ -17,21 +22,32 @@ const mainStyle: CSSObject = {
   minWidth: "100vw",
 };
 
-const Main = styled.div.attrs(({ bgColour }: { bgColour: string }) => ({
-  bgColour,
-}))`
+const Main = styled.div.attrs(
+  ({ bgColour, extraStyle }: { bgColour: string; extraStyle?: CSSObject }) => ({
+    bgColour,
+    extraStyle,
+  })
+)`
   ${mainStyle}
+  ${({ extraStyle }: { extraStyle: CSSObject }) => extraStyle}
   background:${({ bgColour }: { bgColour: string }) => bgColour}
 `;
 
-export default function PageWrapper({ children, title, bgColour }: Props) {
+export default function PageWrapper({
+  children,
+  title,
+  bgColour,
+  extraStyle,
+}: Props) {
   return (
     <>
       <Head>
         <title>{title}</title>
         <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
       </Head>
-      <Main bgColour={!bgColour ? "white" : bgColour}>{children}</Main>
+      <Main bgColour={!bgColour ? "white" : bgColour} extraStyle={extraStyle}>
+        {children}
+      </Main>
     </>
   );
 }

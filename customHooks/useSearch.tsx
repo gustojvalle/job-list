@@ -10,7 +10,11 @@ export const SearchContext = createContext<SearchContextType>({
   setSearchState: () => null,
 });
 
-export const SearchProvider: any = ({ children }: { children: ReactNode }) => {
+export const SearchProvider: React.FC<any> = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [searchState, setSearchState] = useState<string>("");
 
   return (

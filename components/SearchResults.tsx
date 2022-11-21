@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled, { CSSObject } from "styled-components";
-import { SearchBox, useInstantSearch } from "react-instantsearch-hooks-web";
+import {
+  SearchBox,
+  UseInfiniteHitsProps,
+  useInstantSearch,
+} from "react-instantsearch-hooks-web";
 import { useSearch } from "../customHooks/useSearch";
 import SearchResultCard from "./SearchResultCard";
 import { device } from "../styles/mediaQueries";
-
+import { BasicDoc, Hit } from "react-instantsearch-core";
 const ulStyle: CSSObject = { listStyleType: "none", width: "100%", padding: 0 };
 
 const Ul = styled.ul`
@@ -14,7 +18,11 @@ const Ul = styled.ul`
   ${ulStyle}
 `;
 
-type Props = { showMore: any; hits: any; isLastPage: any };
+type Props = {
+  showMore: () => void;
+  hits: any;
+  isLastPage: boolean;
+};
 
 export default function SearchResults({ showMore, isLastPage, hits }: Props) {
   const lastPos = useRef<HTMLLIElement>(null);
@@ -50,7 +58,7 @@ export default function SearchResults({ showMore, isLastPage, hits }: Props) {
   return (
     <Ul>
       <SearchBox hidden={true} />
-      {hits.map((hit: any) => (
+      {hits.map((hit: Hit<BasicDoc>) => (
         <li key={hit.id}>
           <SearchResultCard
             hit={hit}
