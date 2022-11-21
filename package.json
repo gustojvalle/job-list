@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "storybook": "start-storybook -s ./public -p 6006",
+    "storybook": "start-storybook 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -50,7 +50,8 @@
     "eslint-plugin-storybook": "^0.6.7",
     "file-loader": "^6.2.0",
     "jest": "28.1.2",
-    "jest-environment-jsdom": "28.1.2"
+    "jest-environment-jsdom": "28.1.2",
+    "storybook-addon-next": "^1.6.10"
   },
   "engines": {
     "node": "16.x"
