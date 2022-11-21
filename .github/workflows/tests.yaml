@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - run: yarn install --ignore-engines
+      - run: yarn install --ignore-engines --legacy-peer-deps
       - run: yarn run test --no-watch --coverage
 
       - name: Tests ✅
