@@ -10,17 +10,7 @@ import { SearchProvider } from "../customHooks/useSearch";
 import { globalStyle, Theme } from "../styles/globals";
 import Image from "next/image";
 import { ThemeType } from "../types/ThemeTypes";
-import Link from "next/link";
-
-const imageStyle: CSSObject = {
-  position: "relative",
-  zIndex: 99999,
-  boxShadow: "9px 9px 20px #cccccc",
-};
-
-const ImageStyled = styled(Image)`
-  ${imageStyle}
-`;
+import Logo from "../components/Logo";
 
 const rootStyle: CSSObject = {
   position: "relative",
@@ -41,6 +31,24 @@ const Header = styled.header`
   ${headerStyle}
 `;
 
+const loginButtonStyle: CSSObject = {
+  position: "relative",
+  zIndex: 99999,
+  height: "fit-content",
+  padding: "1rem 2rem",
+  borderRadius: "5px",
+  backgroundColor: "#267E4F",
+  color: "white",
+  "&:hover": {
+    opacity: 0.9,
+    border: "1.5px solid rgba(0,0,0, 0.2)",
+  },
+};
+
+const LoginButton = styled.button`
+  ${loginButtonStyle}
+`;
+
 const GlobalStyleSetup = createGlobalStyle<{
   theme: ThemeType;
 }>`${globalStyle}`;
@@ -51,15 +59,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyleSetup />
       <Root>
         <Header>
-          <Link href="/">
-            <ImageStyled
-              src={icon.src}
-              alt="company's logo"
-              width={60}
-              height={60}
-            />
-          </Link>
-          <button>Login</button>
+          <Logo />
+
+          <LoginButton>Login</LoginButton>
         </Header>
         <ThemeProvider theme={Theme}>
           <SearchProvider>

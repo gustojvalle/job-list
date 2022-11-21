@@ -4,6 +4,7 @@ import styled, { CSSObject, ThemeProps } from "styled-components";
 import marker from "../public/marker.png";
 import ApplyNowButton from "./ApplyNowButton";
 import { cardShadow } from "../styles/sharedStyles";
+import { device } from "../styles/mediaQueries";
 
 type Props = { hit: Hit; detailsOpen: any; setDetailsOpen: any };
 
@@ -44,12 +45,12 @@ const detailsStyles: CSSObject = {
 
 const Details = styled.details`
   ${detailsStyles};
-  &[open] > summary {
-    border-bottom: ${(props: any) => {
-      console.log(props.theme.colors.gray50);
-      return `2px solid ${props.theme.colors.quinternary}`;
-    }}
+   @media ${device.laptop} {  
+    max-width: 60vw
   },
+  &[open] > summary {
+    border-bottom: ${(props: any) =>
+      `2px solid ${props.theme.colors.quinternary}`},
 `;
 
 const summaryStyle: CSSObject = {
@@ -78,6 +79,7 @@ const bottomInfoStyles: CSSObject = {
   display: "flex",
   justifyContent: "space-between",
   marginTop: "1.5rem",
+  alignItems: "center",
 };
 const BottomInfo = styled.div`
   ${bottomInfoStyles}
@@ -116,13 +118,7 @@ export default function SearchResultCard({
     <Details id={hit.id} open={detailsOpen[hit.id]}>
       <Summary>
         <h3>{hit.title}</h3>
-        <Button
-          id={hit.id}
-          onMouseEnter={() => {
-            console.log(hit.id);
-          }}
-          onClick={closeButtonHandler}
-        >
+        <Button id={hit.id} onClick={closeButtonHandler}>
           &#10005;
         </Button>
       </Summary>
