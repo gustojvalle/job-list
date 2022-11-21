@@ -12,10 +12,7 @@ import SearchResults from "../components/SearchResults";
 import StateIndicator from "../components/StateIndicator";
 import { ThemeType } from "../types/ThemeTypes";
 import { device } from "../styles/mediaQueries";
-<<<<<<< HEAD
-=======
 
->>>>>>> f97381090dabd4c9fc7a2aa4a9195c1478e68679
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ID || "",
