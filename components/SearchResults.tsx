@@ -1,28 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import { SearchBox, useInstantSearch } from "react-instantsearch-hooks-web";
 import { useSearch } from "../customHooks/useSearch";
 import SearchResultCard from "./SearchResultCard";
+import { device } from "../styles/mediaQueries";
+
+const ulStyle: CSSObject = { listStyleType: "none", width: "100%", padding: 0 };
 
 const Ul = styled.ul`
-  list-style-type: none;
-  width: 100%;
-  padding: 0;
+   @media ${device.laptop} {  
+    max-width: 60vw
+  },
+  ${ulStyle}
 `;
 
 type Props = { showMore: any; hits: any; isLastPage: any };
 
 export default function SearchResults({ showMore, isLastPage, hits }: Props) {
   const lastPos = useRef<HTMLLIElement>(null);
-  console.log(hits);
-
   const { uiState, setUiState } = useInstantSearch();
   const { searchState, setSearchState } = useSearch();
   const [detailsOpen, setDetailsOpen] = useState({});
 
-  useEffect(() => {
-    console.log(hits);
-  }, [hits]);
   useEffect(() => {
     setUiState({
       [process.env.NEXT_PUBLIC_INDEX_NAME || ""]: {

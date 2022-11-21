@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { CSSObject, useTheme } from "styled-components";
-import { SearchBox } from "react-instantsearch-hooks-web";
 import SearchBar from "../components/SearchBar";
 import PageWrapper from "../components/PageWrapper";
 import { bgGradient } from "../styles/sharedStyles";
@@ -14,7 +13,6 @@ const H1 = styled.h1`
 
 export default function Index(props: any) {
   const theme = useTheme();
-  console.log(theme);
   return (
     <PageWrapper bgColour={bgGradient} title="search-page">
       <H1>

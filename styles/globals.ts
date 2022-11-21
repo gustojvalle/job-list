@@ -33,6 +33,7 @@ export const Theme: CSSObject = {
     black: "#000000",
     white: "#FFFFFF",
     primary: "#40476D",
+    primaryHover: "#2C4759",
     secondary: "#79B4A9",
     tertiary: "#D7F2BA",
     quarternary: "#9FA4C4",

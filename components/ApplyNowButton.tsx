@@ -16,6 +16,9 @@ const rootStyle: CSSObject = {
 };
 const Root = styled.button`
   ${rootStyle}
+  &:hover {
+    background-color: ${(props: any) => props.theme.colors.primaryHover};
+  }
   background-color: ${(props: any) => props.theme.colors.primary};
 `;
 
