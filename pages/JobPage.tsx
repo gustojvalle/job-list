@@ -13,6 +13,7 @@ import StateIndicator from "../components/StateIndicator";
 import { ThemeType } from "../types/ThemeTypes";
 import { device } from "../styles/mediaQueries";
 
+
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ID || "",
   process.env.NEXT_PUBLIC_KEY || " "
