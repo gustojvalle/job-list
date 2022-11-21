@@ -51,12 +51,13 @@ export default function SearchResults({ showMore, isLastPage, hits }: Props) {
     <Ul>
       <SearchBox hidden={true} />
       {hits.map((hit: any) => (
-        <SearchResultCard
-          key={hit.id}
-          hit={hit}
-          detailsOpen={detailsOpen}
-          setDetailsOpen={setDetailsOpen}
-        />
+        <li key={hit.id}>
+          <SearchResultCard
+            hit={hit}
+            detailsOpen={detailsOpen}
+            setDetailsOpen={setDetailsOpen}
+          />
+        </li>
       ))}
       <li ref={lastPos} aria-hidden={true}></li>
     </Ul>

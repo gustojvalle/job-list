@@ -10,9 +10,10 @@ const formStyle: CSSObject = {
   width: "100%",
   display: "flex",
   backgroundColor: "white",
-  borderRadius: "6px",
+  borderRadius: "8px",
   overflow: "hidden",
   padding: "1rem",
+  marginTop: "2rem",
   ...cardShadow,
 };
 const Form = styled.form`
