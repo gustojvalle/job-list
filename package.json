@@ -17,6 +17,7 @@
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
+    "next-fonts": "^1.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-instantsearch-dom": "^6.38.1",
@@ -29,12 +30,13 @@
     "styled-components": "^5"
   },
   "devDependencies": {
-    "@types/react-instantsearch-dom": "^6.12.3",
-    "@types/styled-components": "^5.1.26",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "jest-environment-jsdom": "28.1.2",
-    "jest": "28.1.2"
+    "@types/react-instantsearch-dom": "^6.12.3",
+    "@types/styled-components": "^5.1.26",
+    "file-loader": "^6.2.0",
+    "jest": "28.1.2",
+    "jest-environment-jsdom": "28.1.2"
   },
   "engines": {
     "node": "16.x"

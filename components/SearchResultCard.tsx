@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Hit } from "react-instantsearch-core";
-import styled, { CSSObject, ThemeProps } from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import marker from "../public/marker.png";
 import ApplyNowButton from "./ApplyNowButton";
 import { cardShadow } from "../styles/sharedStyles";
@@ -31,7 +31,7 @@ const Button = styled.button`
 const detailsStyles: CSSObject = {
   position: "relative",
   backgroundColor: "white",
-  borderRadius: "6px",
+  borderRadius: "9px",
   width: "100%",
   alignItems: "center",
   marginBottom: "1rem",
@@ -57,7 +57,7 @@ const summaryStyle: CSSObject = {
   listStyle: "none",
   display: "flex",
   justifyContent: "space-between",
-  padding: "0 1rem",
+  padding: "1.2rem",
   alignItems: "center",
   height: "fit-content",
   "&:hover": {
@@ -69,7 +69,7 @@ const Summary = styled.summary`
   ${summaryStyle}
 `;
 const jobInfoContainerStyles: CSSObject = {
-  padding: "1rem 1rem",
+  padding: "1.2rem 1rem",
 };
 const JobInfoContainer = styled.div`
   ${jobInfoContainerStyles}
@@ -123,10 +123,10 @@ export default function SearchResultCard({
         </Button>
       </Summary>
       <JobInfoContainer>
-        <div
+        <p
           dangerouslySetInnerHTML={{ __html: hit.description }}
           key={hit.id}
-        ></div>
+        ></p>
         <BottomInfo>
           <LocationInfo>
             <span>

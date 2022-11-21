@@ -3,7 +3,12 @@ import React from "react";
 import { useInstantSearch } from "react-instantsearch-hooks-web";
 import styled, { CSSObject } from "styled-components";
 
-const divStyle: CSSObject = {};
+const divStyle: CSSObject = {
+  backgroundColor: "rgba(0,0,0,0.3)",
+  padding: "1rem",
+  border: "1px solid gray",
+  borderRadius: "8px",
+};
 
 const Div = styled.div`
   ${divStyle}

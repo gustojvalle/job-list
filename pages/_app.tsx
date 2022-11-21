@@ -36,7 +36,7 @@ const loginButtonStyle: CSSObject = {
   zIndex: 99999,
   height: "fit-content",
   padding: "1rem 2rem",
-  borderRadius: "5px",
+  borderRadius: "8px",
   backgroundColor: "#267E4F",
   color: "white",
   "&:hover": {

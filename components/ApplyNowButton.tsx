@@ -3,7 +3,7 @@ import styled, { CSSObject } from "styled-components";
 
 const rootStyle: CSSObject = {
   color: "white",
-  borderRadius: "5px",
+  borderRadius: "8px",
   height: "fit-content",
   padding: "0.8rem",
   display: "flex",
