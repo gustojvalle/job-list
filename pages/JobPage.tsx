@@ -4,6 +4,7 @@ import {
   InstantSearch,
   HitsPerPage,
   useInfiniteHits,
+  UseInfiniteHitsProps,
 } from "react-instantsearch-hooks-web";
 import styled, { CSSObject, useTheme } from "styled-components";
 import PageWrapper from "../components/PageWrapper";
@@ -12,7 +13,7 @@ import SearchResults from "../components/SearchResults";
 import StateIndicator from "../components/StateIndicator";
 import { ThemeType } from "../types/ThemeTypes";
 import { device } from "../styles/mediaQueries";
-
+import { Hit, BasicDoc } from "react-instantsearch-core";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ID || "",
@@ -54,7 +55,8 @@ const H2 = styled.h2`
   },`;
 
 function JobPageComponent() {
-  const { hits, isLastPage, showMore } = useInfiniteHits<any>();
+  const { hits, isLastPage, showMore } =
+    useInfiniteHits<UseInfiniteHitsProps<any>>();
   const theme = useTheme() as ThemeType;
 
   return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import SearchBar from "../components/SearchBar";
+import Setup from './Setup';
 
 export default {
   title: "Components/SearchBar",
@@ -9,7 +10,7 @@ export default {
 } as ComponentMeta<typeof SearchBar>;
 
 export const SearchBarTemplate: ComponentStory<typeof SearchBar> = (args) => (
-  <SearchBar />
+  <Setup><SearchBar /></Setup>
 );
 SearchBarTemplate.parameters = {
   nextRouter: {

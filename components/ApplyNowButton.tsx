@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { CSSObject } from "styled-components";
+import { ThemeType } from "../types/ThemeTypes";
 
 const rootStyle: CSSObject = {
   color: "white",
@@ -17,9 +18,11 @@ const rootStyle: CSSObject = {
 const Root = styled.button`
   ${rootStyle}
   &:hover {
-    background-color: ${(props: any) => props.theme.colors.primaryHover};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.colors.primaryHover};
   }
-  background-color: ${(props: any) => props.theme.colors.primary};
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.colors.primary};
 `;
 
 export default function ApplyNowButton() {
