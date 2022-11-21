@@ -58,28 +58,30 @@ function JobPageComponent() {
 
   return (
     <PageWrapper bgColour={theme.colors.quinternary} title="job-page">
-      <h1>Job Openings</h1>
+      <h1>Job Openings &#x1F4BC;&#xA;</h1>
       <H2>
         Yes, if you make it look like an electrical fire. When you do things
         right, people will not be sure you have done anything at all.
       </H2>
-      <ExtraControlsCard>
-        <label>Results per page: </label>
-        <StyledHPPage
-          items={[
-            { label: "10", value: 10, default: true },
-            { label: "15", value: 15 },
-            { label: "20", value: 20 },
-            { label: "25", value: 25 },
-            { label: "30", value: 30 },
-            { label: "35", value: 35 },
-            { label: "40", value: 40 },
-            { label: "45", value: 45 },
-            { label: "50", value: 50 },
-            { label: "100", value: 100 },
-          ]}
-        />
-      </ExtraControlsCard>
+      {hits.length > 0 && (
+        <ExtraControlsCard>
+          <label>Results per page: </label>
+          <StyledHPPage
+            items={[
+              { label: "10", value: 10, default: true },
+              { label: "15", value: 15 },
+              { label: "20", value: 20 },
+              { label: "25", value: 25 },
+              { label: "30", value: 30 },
+              { label: "35", value: 35 },
+              { label: "40", value: 40 },
+              { label: "45", value: 45 },
+              { label: "50", value: 50 },
+              { label: "100", value: 100 },
+            ]}
+          />
+        </ExtraControlsCard>
+      )}
       <SearchResults showMore={showMore} hits={hits} isLastPage={isLastPage} />
       <StateIndicator hits={hits} />
     </PageWrapper>

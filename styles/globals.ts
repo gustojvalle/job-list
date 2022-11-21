@@ -115,6 +115,13 @@ input::placeholder {
   text-align:left;
 
 }
+input {
+    text-align: center;
+  font-family:-apple-system, Lato Regular, Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-size: 1rem; 
+  text-align:left;
+
+}
 ${fonts}
 
 `;

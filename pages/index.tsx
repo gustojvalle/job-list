@@ -12,7 +12,7 @@ export default function Index(props: any) {
   return (
     <PageWrapper bgColour={bgGradient} title="search-page">
       <h1>
-        Find a job you love <br />
+        Find a job you love &#x1FAF6; <br />
         with Paradigmo
       </h1>
       <SearchBar />
