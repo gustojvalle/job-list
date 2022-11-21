@@ -11,12 +11,7 @@ import algoliasearch from "algoliasearch/lite";
 import SearchResults from "../components/SearchResults";
 import StateIndicator from "../components/StateIndicator";
 import { ThemeType } from "../types/ThemeTypes";
-<<<<<<< HEAD
 import { device } from "../styles/mediaQueries";
-=======
-
-const H1 = styled.h1``;
->>>>>>> 99d2c39801d421d560c027859450855310a42b29
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ID || "",
@@ -40,10 +35,7 @@ const StyledHPPage = styled(HitsPerPage)`
 const extraControlStyles: CSSObject = {
   display: "flex",
   alignItems: "center",
-<<<<<<< HEAD
   marginBottom: "1rem",
-=======
->>>>>>> 99d2c39801d421d560c027859450855310a42b29
   "& > label": {
     marginRight: "0.5rem",
     opacity: 0.7,
