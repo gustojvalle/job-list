@@ -17,7 +17,7 @@ jobs:
           node-version: '16.x'
       - uses: actions/checkout@v1
       - name: installing dependencies
-        run: yarn install --ignore-engines
+        run: yarn install --ignore-engines --legacy-peer-deps
       - name: test
         run: yarn run test --no-watch 
   Deploy-Production:
